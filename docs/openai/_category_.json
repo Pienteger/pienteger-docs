@@ -1,0 +1,8 @@
+{
+  "label": "OpenAi",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Pienteger provides access to OpenAi's API to harness the power of AI to help you build better products."
+  }
+}
