@@ -62,14 +62,14 @@ GET https://api.pienteger.com/oaiv1/getmodels
 
 Lists the currently available models, and provides basic information about each one such as the owner and availability.
 
-### Example request
+#### Example request
 
 ```bash
-curl https://api.pienteger.com/oaiv1/getmodels \
+curl https://api.pienteger.com/oaiv1/models \
   -H 'X-Api-Key: YOUR_API_KEY'
 ```
 
-### Example response
+#### Example response
 
 ```json
 {
@@ -96,3 +96,57 @@ curl https://api.pienteger.com/oaiv1/getmodels \
   "object": "list"
 }
 ```
+
+### Retrieve model
+
+```text
+GET https://api.pienteger.com/oaiv1/models/{model}
+```
+
+Retrieves a model instance, providing basic information about the model such as the owner and permissions.
+
+#### Path parameters
+
+| Name | Type | Status | Description |
+| :--- | :--- | :--- | :--- |
+| model | string | Required | The ID of the model to use for this request |
+
+#### Example request
+
+```bash
+curl https://api.pienteger.com/oaiv1/models/text-davinci-003 \
+  -H 'X-Api-Key: YOUR_API_KEY'
+```
+
+#### Example response
+
+```json
+{
+  "id": "text-davinci-003",
+  "object": "model",
+  "owned_by": "openai",
+  "permission": [...]
+}
+```
+
+## Completions
+
+Given a prompt, the model will return one or more predicted completions, and can also return the probabilities of alternative tokens at each position.
+
+### Create completion
+
+```text
+POST https://api.pienteger.com/oaiv1/completions
+```
+
+Creates a completion for the provided prompt and parameters.
+
+#### Request body
+
+| Name | Type | Status | Description | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| model | string | Required | ID of the model to use. You can use the List models API to see all of your available models, or see our Model overview for descriptions of them. | |
+| prompt | string | Optional | The prompt to complete. |  <\|endoftext\|> |
+| suffix | string | Optional | The suffix to append to the completion. |  *null* |
+| max_tokens | integer | Optional | The maximum number of tokens to generate in the completion. <br/> The token count of your prompt plus max_tokens cannot exceed the model's context length. Most models have a context length of 2048 tokens (except for the newest models, which support 4096). | 16 |
+| user | string | Read Only | Your Pienteger Id will be injected here. | |

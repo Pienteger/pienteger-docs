@@ -66,7 +66,7 @@ const config = {
       navbar: {
         title: 'Pienteger Docs',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Pienteger Docs Site Logo',
           src: 'img/pienteger_logo_gradient.png',
         },
         items: [
@@ -74,7 +74,7 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Browse Docs',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
@@ -91,8 +91,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'OpenAi Service',
+                to: '/docs/openai/Introduction',
               },
             ],
           },
@@ -106,6 +106,14 @@ const config = {
               {
                 label: 'Discord',
                 href: 'https://discord.gg/kvNTNhtbJn',
+              },
+              {
+                label: 'Facebook',
+                href: 'https://facebook.com/pienteger',
+              },
+              {
+                label: 'LinkedIn',
+                href: 'https://linkedin.com/company/pienteger',
               },
             ],
           },
